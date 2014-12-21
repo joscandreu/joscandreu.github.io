@@ -14,4 +14,6 @@ mathjax:
 ---
 
 >&quot;Qui tegit veritatem eam timet, nam veritas vincit Omnia.&quot;
-><small><cite title="Latin saying">Who covers the truth, is afraid of it, because the truth conquers everything.</cite></small>
+><small><cite title="Latin saying">Latin saying</cite></small>
+
+Who covers the truth, is afraid of it, because the truth conquers everything.
