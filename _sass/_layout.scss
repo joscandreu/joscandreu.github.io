@@ -55,6 +55,13 @@
   padding: .2em 0;
   color: #000;
 }
+/* Category links (every item except About and Search) are blue, like Search. */
+.nav-list li:not(.nav-sep) a:not(.nav-search) {
+  color: $color-link;
+}
+.nav-list li:not(.nav-sep) a:not(.nav-search):visited {
+  color: $color-link;
+}
 .nav-list a:hover {
   text-decoration: none;
   color: $color-link;
