@@ -1,0 +1,45 @@
+{%- comment -%}
+  Related posts ranked by shared tags. Pure Liquid, no plugins, so it works
+  on GitHub Pages (unlike Jekyll's --lsi related_posts).
+
+  For every other post we count how many tags it shares with the current
+  post. Posts that share more tags are listed first; ties are broken by
+  recency (newest first). At most `limit` links are shown.
+
+  The section is only rendered when at least one other post shares a tag;
+  if there is no real overlap, nothing is printed.
+
+  Params:
+    include.post   — the current post (defaults to page)
+    include.limit  — max links (defaults to site.related_posts_limit, then 5)
+{%- endcomment -%}
+{%- assign current = include.post | default: page -%}
+{%- assign limit = include.limit | default: site.related_posts_limit | default: 5 -%}
+{%- assign shown = 0 -%}
+
+{%- capture items -%}
+  {%- if current.tags.size > 0 -%}
+    {%- comment -%} Walk possible scores from most shared tags down to one {%- endcomment -%}
+    {%- for score in (1..current.tags.size) reversed -%}
+      {%- for p in site.posts -%}
+        {%- unless p.url == current.url -%}
+          {%- assign shared = 0 -%}
+          {%- for t in current.tags -%}
+            {%- if p.tags contains t -%}{%- assign shared = shared | plus: 1 -%}{%- endif -%}
+          {%- endfor -%}
+          {%- if shared == score and shown < limit -%}
+            <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+            {%- assign shown = shown | plus: 1 -%}
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if shown > 0 -%}
+  <section class="related">
+    <h2>Related posts</h2>
+    <ul>{{ items }}</ul>
+  </section>
+{%- endif -%}

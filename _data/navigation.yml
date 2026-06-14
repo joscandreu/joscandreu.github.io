@@ -1,0 +1,39 @@
+# Main sections menu (microsiervos-style "Sections").
+# 'category' must match the category used in each post's front matter.
+# 'url' points to that category's archive page.
+sections:
+  - name: Science
+    category: science
+    url: /science/
+  - name: Technology
+    category: technology
+    url: /technology/
+  - name: Internet
+    category: internet
+    url: /internet/
+  - name: Curiosities
+    category: curiosities
+    url: /curiosities/
+  - name: Design
+    category: design
+    url: /design/
+  - name: Geek Culture
+    category: geek-culture
+    url: /geek-culture/
+  - name: Mathematics
+    category: mathematics
+    url: /mathematics/
+  - name: Books
+    category: books
+    url: /books/
+
+# Secondary links (header/footer)
+pages:
+  - name: Home
+    url: /
+  - name: Archive
+    url: /archive/
+  - name: Search
+    url: /search/
+  - name: About
+    url: /about/

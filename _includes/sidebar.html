@@ -1,0 +1,42 @@
+<aside class="sidebar" role="complementary">
+
+  <section class="widget widget-search">
+    <h2 class="widget-title">Search</h2>
+    <form action="{{ '/search/' | relative_url }}" method="get" role="search">
+      <input type="search" name="q" placeholder="Search the blog…" aria-label="Search">
+      <button type="submit">Go</button>
+    </form>
+  </section>
+
+  <section class="widget widget-sections">
+    <h2 class="widget-title">Sections</h2>
+    <ul class="widget-list">
+      {% for s in site.data.navigation.sections %}
+        {% assign count = site.categories[s.category] | size %}
+        <li>
+          <a href="{{ s.url | relative_url }}">{{ s.name }}</a>
+          {% if count > 0 %}<span class="badge">{{ count }}</span>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="widget widget-recent">
+    <h2 class="widget-title">Latest</h2>
+    <ul class="widget-list">
+      {% for post in site.posts limit: 6 %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {% if site.social.size > 0 or site.show_rss %}
+  <section class="widget widget-follow">
+    <h2 class="widget-title">Follow us</h2>
+    <div class="social-list">
+      {% include social-links.html %}
+    </div>
+  </section>
+  {% endif %}
+
+</aside>

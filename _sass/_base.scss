@@ -1,0 +1,118 @@
+// ---------------------------------------------------------------------
+//  Light reset and base styles
+// ---------------------------------------------------------------------
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: $font-sans;     // UI / chrome is Helvetica Neue; article body opts into serif
+  font-size: $fs-base;
+  line-height: $lh-base;
+  color: $color-text;
+  background: $color-bg;
+  // microsiervos sets no font-smoothing, so it renders with the browser
+  // default (subpixel-antialiased) — heavier, thicker strokes. Forcing
+  // `antialiased` here would make the Georgia body text look lighter/thinner
+  // than the reference, so we leave smoothing at the default.
+}
+
+// Headings: Helvetica Neue, bold. In-article subheadings are uppercased
+// where they appear inside .post-content / .post-card-content.
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-sans;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 1.5em 0 .5em;
+  color: #1c1c1c;
+}
+h1 { font-size: 1.9em; letter-spacing: -.02em; }
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.12em; }
+
+p, ul, ol, blockquote, figure, pre, table { margin: 0 0 1.1em; }
+
+a {
+  color: $color-link;
+  text-decoration: none;
+}
+a:visited { color: $color-visited; }
+a:hover, a:focus { color: $color-link-hover; text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+// Quote: grey sans-serif with a big decorative quotation mark, microsiervos style
+blockquote {
+  position: relative;
+  margin: 1.4em 0;
+  padding: .2em .2em 0 2em;     // hanging indent for the quote mark
+  font-family: $font-sans;
+  font-size: .9em;
+  line-height: 1.4;
+  color: $color-muted;
+}
+blockquote::before {
+  content: "\201C";            // opening quotation mark “
+  position: absolute;
+  left: 0;
+  top: .05em;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: #9c9c9c;
+}
+blockquote p:last-child { margin-bottom: 0; }
+blockquote cite {
+  display: block;
+  margin-top: .4em;
+  font-style: normal;
+  font-size: .85rem;
+  color: $color-muted;
+}
+
+hr { border: 0; border-top: 1px solid $color-border; margin: 2em 0; }
+
+code, pre { font-family: $font-mono; }
+code {
+  font-size: .9em;
+  background: $color-code-bg;
+  padding: .15em .4em;
+  border-radius: 4px;
+}
+pre {
+  background: $color-soft;
+  border: 1px solid #e5e5e5;
+  border-radius: $radius;
+  padding: 8px 15px;
+  overflow-x: auto;
+  font-size: .8em;
+  line-height: 1.45;
+  color: $color-text;
+  code { background: none; padding: 0; font-size: 1em; }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-sans;
+  font-size: .85em;
+}
+th, td { border-bottom: 1px solid $color-border; padding: .4em .6em; text-align: left; }
+th { border-bottom: 2px solid $color-border; }
+
+// Accessibility
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: $color-text;
+  color: #fff;
+  padding: .6em 1em;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible { outline: 2px solid $color-link; outline-offset: 2px; }

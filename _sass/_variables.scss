@@ -1,0 +1,39 @@
+// ---------------------------------------------------------------------
+//  Design variables — values taken from the real microsiervos.com v9 CSS
+// ---------------------------------------------------------------------
+
+// Colors
+$color-bg:        #ffffff;
+$color-text:      #333333;   // body / article text
+$color-muted:     #666666;   // meta, captions, sidebar
+$color-link:      #0070bb;   // characteristic link blue
+$color-link-hover:#005a96;
+$color-visited:   #993399;   // visited links (purple)
+$color-accent:    #0070bb;   // microsiervos has no red accent — kickers are blue
+$color-border:    #cccccc;   // hairlines / separators
+$color-soft:      #f8f8f8;   // <pre> background
+$color-code-bg:   #eeeeee;   // inline <code> background
+$color-header-bg: #ffffff;
+$color-footer-bg: #ffffff;   // microsiervos uses a white footer
+$color-footer-tx: #333333;
+
+// Typography
+// microsiervos pairs a Georgia serif body with a Helvetica Neue sans UI.
+$font-sans:  "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+$font-serif: Georgia, Times, "Times New Roman", serif;
+$font-mono:  "IBM Plex Mono", Monaco, Consolas, "Liberation Mono", monospace;
+
+$fs-base:   16px;     // browser default — the article scales up from here
+$lh-base:   1.6;
+$fs-article:1.2em;    // article body is 1.2em Georgia / 1.6
+
+// Measurements
+$wrap-max:    1020px;
+$content-max: 600px;   // microsiervos post column
+$sidebar-w:   300px;   // right column
+$gap:         60px;
+$radius:      5px;
+
+// Breakpoints
+$bp-tablet: 900px;
+$bp-mobile: 560px;

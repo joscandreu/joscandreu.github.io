@@ -1,200 +1,111 @@
-title:            JOSCANDREU
-description:      "Random thoughts about random things"
-logo:             joscandreu-avatar.png
-disqus_shortname: 
-# Assign a default image for your site's header and footer
-default_bg:       default_bg1.jpg
-search:           true
-share:            true
-# Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
-readtime:         true
-# Specify the average Words per minute. If not defined, 180 will be used
-wpm:				      200
-# Turn on or off the fin animations in the header and footer
-triangleheader:		true
-animated_fins:	  true
-# Specify the fin color in RGB value
-fin_color:        "255,255,255"
-# Change url to your domain. Leave localhost server or blank when working locally.
-# or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same 
-# whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
-url:       https://joscandreu.com		   
+# ======================================================================
+#  Micro — a Jekyll theme inspired by microsiervos.com
+#  Main site configuration
+# ======================================================================
 
-# Owner/author information
-owner:
-  name:           José Carlos Andreu
-  avatar:         joscandreu.jpg
-  email:          joscandreu@joscandreu.com
-  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    José Carlos Andreu is a telematics engineer passionate about technology and music.
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:        joscandreu
-  facebook:       jose.andreugalan
-  github:         joscandreu
-  stackexchange:  http://stackexchange.com/users/1466604/joscandreu
-  linkedin:       
-  instagram:      
-  flickr:         
-  tumblr:         
-  # For Google Authorship https://plus.google.com/authorship
-  google_plus:    https://plus.google.com/u/0/113291847803977273781/
+# --- Site identity ------------------------------------------------------
+title:        joscandreu
+tagline:      Technology, science, internet and curiosities
+description: >-
+  A minimalist blog about technology, science, internet and curiosities.
+author:       José Carlos Andreu Galán
+email:        joscandreu@gmail.com
+lang:         en
 
-# Analytics and webmaster tools stuff goes here
-google_analytics: UA-28190895-1  
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
+# Base URL. For a project GitHub Pages site use baseurl: "/repo-name".
+# For a user/organization page or a custom domain, leave it empty.
+url:          "https://joscandreu.com"
+baseurl:      ""
 
-# Links to include in footer navigation
-# For external links add external: true
-links:
-  - title: Home
-    url: /
-    external: false
-    icon: home
-  - title: Categories
-    url: /categories
-  - title: Tags
-    url: /tags
+# --- Social links (shown in the sidebar and the footer) ----------------
+# Fully configurable list: add, remove or reorder the links.
+# Each entry needs 'name' (link text) and 'url' (destination).
+# To hide all social links, leave the list empty: social: []
+social:
+  - name: Twitter / X
+    url: https://twitter.com/username
+  - name: Mastodon
+    url: https://mastodon.social/@username
+  - name: GitHub
+    url: https://github.com/joscandreu
+# Also show a link to the RSS feed next to the social links
+show_rss: true
 
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Europe/Madrid
-future:      true
-highlighter: pygments
-markdown:    kramdown
-paginate:    6
-paginate_path: "page:num"
+# --- Comments (optional, disabled by default) --------------------------
+# provider: "" | "giscus" | "disqus"
+comments:
+  provider: ""
+  # giscus config (https://giscus.app)
+  giscus:
+    repo: ""
+    repo_id: ""
+    category: ""
+    category_id: ""
+  # Disqus config
+  disqus:
+    shortname: ""
 
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title
+# --- Analytics (optional) ----------------------------------------------
+google_analytics: ""   # e.g. "G-XXXXXXXXXX"
+
+# --- Pagination (jekyll-paginate v1, GitHub Pages compatible) ----------
+paginate:       10
+paginate_path:  "/page/:num/"
+
+# --- Build --------------------------------------------------------------
+markdown:       kramdown
+highlighter:    rouge
+permalink:      /:categories/:title/
+timezone:       Europe/London
+
+# Posts are shown IN FULL in listings (home, sections). To trim a long
+# post and show only the beginning + a "Read more" link, add <!--more-->
+# at the cut point.
+excerpt_separator: "<!--more-->"
+
+# Max number of related posts shown after each post. Related posts are
+# ranked by how many tags they share with the current post (more shared
+# tags rank higher); the section is hidden when there is no tag overlap.
+related_posts_limit: 5
 
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
 
-  coderay:
-    coderay_line_numbers: 
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
+# --- Plugins (ALL allowed on GitHub Pages) -----------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
 
-prose:
-  rooturl: '_posts'
-  siteurl: 'https://joscandreu.com/'
-  relativeLinks: 'https://joscandreu.com/links.jsonp'
-  media: 'images'
-  metadata:
-    _posts:
-      - name: "published"
-        field:
-          label: "Published"
-          element: "checkbox"
-          value: "true"
-      - name: "layout"
-        field:
-          element: "hidden"
-          label: "Layout"
-          value: "post"
-      - name: "type"
-        field:
-          element: "select"
-          label: "Select Post Type"
-          placeholder: "Choose your type"
-          options:
-            - name: "Standard"
-              value: 
-            - name: "Quote"
-              value: quote
-            - name: "Status"
-              value: status
-            - name: "Photo"
-              value: photo
-            - name: "Video"
-              value: video
-      - name: "title"
-        field:
-          label: "Title"
-          element: "text"
-          value: "An Awesome Headline!"
-      - name: "description"
-        field:
-          element: "text"
-          label: "Description"
-          placeholder: "Enter Post Description"
-      - name: "headline"
-        field:
-          element: "text"
-          label: "beadline"
-          placeholder: "Enter Post Headline"
-      - name: "modified"
-        field:
-          element: "text"
-          label: "Has this page been modified?"
-          placeholder: "YYYY-MM-DD"
-      - name: "categories"
-        field:
-          element: "multiselect"
-          label: "Add categories"
-          placeholder: "Choose categories"
-          value: personal
-          options:
-            - name: "Personal"
-              value: personal
-            - name: "Web-Development"
-              value: webdevelopment
-            - name: "Interesting"
-              value: interesting
-            - name: "Status"
-              value: status
-            - name: "Quotes"
-              value: quotes
-          alterable: true
-      - name: "tags"
-        field:
-          element: "text"
-          label: "Tags"
-          placeholder: "Enter tags, separated by spaces"
-      - name: "imagefeature"
-        field:
-          element: "text"
-          label: "Featured Image"
-          placeholder: "somefile.jpg"
-      - name: "imagecredit"
-        field:
-          element: "text"
-          label: "Image Credit"
-          placeholder: "some guy"
-      - name: "imagecreditlink"
-        field:
-          element: "text"
-          label: "Credit link for the image"
-          placeholder: "http://somewebsite.com"
-      - name: "video"
-        field:
-          element: "text"
-          label: "Insert Youtube Link"
-          placeholder: "http://youtube.com/somevideo"
-      - name: "mathjax"
-        field:
-          element: "checkbox"
-          label: "MathJax"
-          value: false
-      - name: "featured"
-        field:
-          element: "checkbox"
-          label: "Featured?"
-          value: false
-      - name: "comments"
-        field:
-          element: "checkbox"
-          label: "Comments"
-          value: false
+# --- Front matter defaults ---------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: "José Carlos Andreu Galán"
+      comments: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
 
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+# --- Exclude from the build --------------------------------------------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
+  - node_modules
+  - .github
+  - .sass-cache
 
-plugins: [jekyll-paginate]
+# --- Feed (jekyll-feed) -------------------------------------------------
+feed:
+  path: feed.xml

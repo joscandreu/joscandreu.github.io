@@ -1,0 +1,11 @@
+{%- comment -%}
+  Section "kicker": the category name in small caps, above the title
+  (microsiervos.com style). Uses the post's first category.
+{%- endcomment -%}
+{%- assign cat = include.post.categories | first -%}
+{%- if cat -%}
+  {%- assign sec = site.data.navigation.sections | where: "category", cat | first -%}
+  <p class="post-kicker">
+    {% if sec %}<a href="{{ sec.url | relative_url }}">{{ sec.name }}</a>{% else %}{{ cat }}{% endif %}
+  </p>
+{%- endif -%}

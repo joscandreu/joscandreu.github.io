@@ -1,0 +1,40 @@
+{%- comment -%}
+  Optional comments. microsiervos has no comments, but since GitHub Pages
+  offers no backend, here we integrate third-party services.
+  Enable one in _config.yml -> comments.provider
+{%- endcomment -%}
+<section class="comments" id="comments">
+  <h2>Comments</h2>
+
+  {% if site.comments.provider == "giscus" %}
+    <script src="https://giscus.app/client.js"
+      data-repo="{{ site.comments.giscus.repo }}"
+      data-repo-id="{{ site.comments.giscus.repo_id }}"
+      data-category="{{ site.comments.giscus.category }}"
+      data-category-id="{{ site.comments.giscus.category_id }}"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+    </script>
+
+  {% elsif site.comments.provider == "disqus" %}
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = "{{ page.url | absolute_url }}";
+        this.page.identifier = "{{ page.id }}";
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://{{ site.comments.disqus.shortname }}.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Enable JavaScript to view the comments.</noscript>
+  {% endif %}
+</section>

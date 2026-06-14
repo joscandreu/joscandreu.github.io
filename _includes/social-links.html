@@ -1,0 +1,11 @@
+{%- comment -%}
+  Social links, configurable in _config.yml -> social.
+  Outputs <a class="social-link"> elements; the container (sidebar or
+  footer) decides the layout. The RSS link is added if show_rss is set.
+{%- endcomment -%}
+{%- for net in site.social -%}
+  <a class="social-link" rel="me" href="{{ net.url }}">{{ net.name }}</a>
+{%- endfor -%}
+{%- if site.show_rss -%}
+  <a class="social-link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+{%- endif -%}

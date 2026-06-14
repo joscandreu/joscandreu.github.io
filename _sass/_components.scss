@@ -1,0 +1,361 @@
+// ---------------------------------------------------------------------
+//  Components: cards, posts, sidebar, pagination, search
+// ---------------------------------------------------------------------
+
+// --- Home intro --------------------------------------------------------
+.home-intro {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $color-border;
+  color: $color-muted;
+}
+
+// --- Post listing (cards) ---------------------------------------------
+// microsiervos separates entries with a single 1px grey rule.
+.post-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 0;
+  border-bottom: 1px solid $color-border;
+}
+.post-card:first-child { padding-top: 0; }
+.post-card-body { min-width: 0; }
+.post-card-title {
+  margin: 0 0 .25em;
+  font-family: $font-sans;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  word-spacing: -.02em;
+}
+.post-card-title a { color: #000; }
+.post-card-title a:visited { color: #000; }
+.post-card-title a:hover { color: #555; text-decoration: none; }
+.post-card-excerpt {
+  font-family: $font-serif;
+  font-size: 1.06rem;
+  line-height: 1.6;
+  margin: .5em 0 .6em;
+}
+.read-more { font-family: $font-sans; font-size: .9rem; font-weight: 700; }
+
+// --- Full-width listing card (banner image + large title) -------------
+.post-card--full {
+  padding-bottom: 30px;
+}
+.post-card-figure {
+  display: block;
+  margin-bottom: .9em;
+}
+.post-card-figure img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: $radius;
+  display: block;
+}
+.post-card--full .post-card-title { font-size: 1.9rem; }
+
+// Article body — Georgia serif, the microsiervos signature
+.post-card-content {
+  margin-top: .6em;
+  font-family: $font-serif;
+  font-size: $fs-article;
+  line-height: 1.6;
+}
+.post-card-content > :first-child { margin-top: 0; }
+.post-card-content > :last-child { margin-bottom: 0; }
+.post-card-content img { border-radius: $radius; }
+
+// --- Section kicker (above the title, microsiervos style) -------------
+// In microsiervos the category label is small, uppercase and blue.
+.post-kicker {
+  margin: 0 0 .3em;
+  font-family: $font-sans;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.post-kicker a { color: $color-link; }
+.post-kicker a:visited { color: $color-link; }
+.post-kicker a:hover { color: $color-muted; text-decoration: underline; }
+
+// --- Metadata ----------------------------------------------------------
+.post-meta {
+  font-family: $font-sans;
+  font-size: .75rem;
+  line-height: 1.8;
+  text-transform: uppercase;
+  color: $color-muted;
+  margin: 0 0 .4em;
+}
+.post-author { font-weight: 700; color: $color-muted; }
+.post-author, .post-meta a { color: $color-link; }
+.post-meta a { font-weight: 700; }
+.post-meta a:visited { color: $color-link; }
+.post-cat { font-weight: 700; }
+
+// --- Single post -------------------------------------------------------
+.post, .page { max-width: $content-max; }
+.post-header { margin-bottom: 1em; }
+.post-title {
+  margin: .1em 0 .4em;
+  font-family: $font-sans;
+  font-size: 1.9em;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: -.04em;
+  word-spacing: -.03em;
+  text-wrap: pretty;
+}
+.post-image { margin: 0 0 1.4em; }
+.post-image img { width: 100%; border-radius: $radius; }
+.post-image figcaption {
+  font-family: $font-sans;
+  font-size: .82rem;
+  color: $color-muted;
+  text-align: center;
+  margin-top: .4em;
+}
+
+// Article body — Georgia serif
+.post-content {
+  font-family: $font-serif;
+  font-size: $fs-article;
+  line-height: 1.6;
+}
+.post-content img { border-radius: $radius; }
+
+// Keep every embedded element inside the article column. Images, videos
+// and figures simply cap their width; iframes (e.g. YouTube) carry hardcoded
+// width/height attributes, so we override them and let them scale to the
+// column while preserving a 16:9 aspect ratio.
+.post-content img,
+.post-content video,
+.post-content figure,
+.post-content embed,
+.post-content object,
+.post-content iframe,
+.post-card-content img,
+.post-card-content video,
+.post-card-content figure,
+.post-card-content embed,
+.post-card-content object,
+.post-card-content iframe {
+  max-width: 100%;
+  height: auto;
+}
+.post-content iframe,
+.post-card-content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: $radius;
+}
+
+// In-article subheadings: Helvetica Neue, uppercase, microsiervos style
+.post-content h2,
+.post-card-content h2 {
+  font-family: $font-sans;
+  font-size: 1.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $color-text;
+  margin: 1.5em 0 .5em;
+}
+.post-content h3,
+.post-card-content h3 {
+  font-family: $font-sans;
+  font-size: 1.05em;
+  text-transform: uppercase;
+  color: $color-text;
+  margin: 1.4em 0 .5em;
+}
+
+// Body links get a subtle underline for readability (microsiervos detail)
+.post-content a:link,
+.post-content a:visited,
+.post-card-content a:link,
+.post-card-content a:visited {
+  color: $color-link;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(0, 112, 187, .4);
+}
+.post-content a:hover,
+.post-card-content a:hover {
+  text-decoration-color: rgba(0, 112, 187, 1);
+}
+
+.post-tags {
+  list-style: none;
+  padding: 0;
+  margin: 1.6em 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: $font-sans;
+}
+.post-tags li {
+  background: $color-soft;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  padding: .2em .8em;
+  font-size: .82rem;
+  color: $color-muted;
+}
+
+// --- Share -------------------------------------------------------------
+.share {
+  margin: 2em 0;
+  padding: 14px 0;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  font-family: $font-sans;
+  font-size: .8rem;
+  text-transform: uppercase;
+  color: $color-muted;
+}
+.share-label { font-weight: 700; margin-right: 8px; }
+.share-link {
+  display: inline-block;
+  margin: 2px 10px 2px 0;
+  font-weight: 700;
+}
+
+// --- Related -----------------------------------------------------------
+.related { margin-top: 2.4em; font-family: $font-sans; }
+.related h2 { font-size: 1.1rem; text-transform: uppercase; }
+.related ul { list-style: square; padding-left: 1.2em; font-size: .95rem; }
+.related li { margin: .25em 0; }
+
+// --- Pagination --------------------------------------------------------
+// Boxed blue buttons that fill on hover, like microsiervos.
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid $color-border;
+  font-family: $font-sans;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.pagination a,
+.pagination .disabled {
+  border: 1px solid $color-link;
+  padding: .6em .9em;
+  border-radius: $radius;
+  color: $color-link;
+  background: #fff;
+}
+.pagination a:hover { background: $color-link; color: #fff; text-decoration: none; }
+.pagination .disabled { color: #bbb; border-color: $color-border; }
+.pagination .page-info {
+  border: 0;
+  padding: 0;
+  font-weight: 400;
+  text-transform: none;
+  color: $color-muted;
+  font-size: .88rem;
+}
+
+// --- Archive / categories ---------------------------------------------
+.archive-header { border-bottom: 1px solid $color-border; padding-bottom: .4em; margin-bottom: 1em; }
+.archive-title { margin: 0; }
+.archive-desc { color: $color-muted; margin: .3em 0 0; }
+.archive-count { color: $color-muted; font-size: .88rem; }
+.empty { color: $color-muted; font-style: italic; }
+
+.archive-year { margin-top: 1.6em; border-bottom: 1px solid $color-border; }
+.archive-list { list-style: none; padding: 0; margin: 0 0 1.5em; font-family: $font-sans; }
+.archive-list li {
+  display: flex;
+  gap: 12px;
+  padding: .35em 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.archive-list .date { flex: 0 0 90px; color: $color-muted; font-size: .85rem; }
+
+// --- Sidebar / widgets -------------------------------------------------
+// The right column is small Helvetica Neue in grey.
+.sidebar {
+  font-family: $font-sans;
+  font-size: .8rem;
+  line-height: 1.3;
+  color: $color-muted;
+}
+.widget { margin-bottom: 30px; }
+.widget-title {
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-weight: 700;
+  color: $color-muted;
+  border-bottom: 1px solid $color-border;
+  padding-bottom: 6px;
+  margin: 0 0 12px;
+}
+.widget-list, .social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.widget-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: .9rem;
+}
+.widget-list .badge {
+  background: $color-soft;
+  color: $color-muted;
+  font-size: .75rem;
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+.social-list .social-link { display: block; padding: 5px 0; }
+
+.widget-search form { display: flex; gap: 6px; }
+.widget-search input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  font-size: .9rem;
+}
+.widget-search button {
+  padding: 8px 14px;
+  border: 0;
+  background: $color-link;
+  color: #fff;
+  border-radius: $radius;
+  cursor: pointer;
+  font-weight: 700;
+}
+.widget-search button:hover { background: $color-link-hover; }
+
+// --- Search (page) -----------------------------------------------------
+.search-box {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: $font-sans;
+  font-size: 1.05rem;
+  border: 2px solid $color-text;
+  border-radius: $radius;
+  margin-bottom: 1.2em;
+}
+#search-results { list-style: none; padding: 0; margin: 0; font-family: $font-sans; }
+#search-results li { padding: 12px 0; border-bottom: 1px solid $color-border; }
+#search-results .result-title { font-size: 1.15rem; font-weight: 700; }
+#search-results .result-meta { font-size: .82rem; color: $color-muted; }
+.search-status { color: $color-muted; }

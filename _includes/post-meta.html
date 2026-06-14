@@ -1,0 +1,9 @@
+{%- comment -%}
+  Post metadata footer: author and date.
+  The category is shown as a "kicker" ABOVE the title
+  (see _includes/post-kicker.html), just like microsiervos.com.
+{%- endcomment -%}
+<p class="post-meta">
+  {% if include.post.author %}By <span class="post-author">{{ include.post.author }}</span> — {% endif %}
+  <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%B %-d, %Y" }}</time>
+</p>
