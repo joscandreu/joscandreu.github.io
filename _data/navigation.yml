@@ -8,6 +8,9 @@ sections:
   - name: Technology
     category: technology
     url: /technology/
+  - name: Cybersecurity
+    category: cybersecurity
+    url: /cybersecurity/
   - name: Internet
     category: internet
     url: /internet/
