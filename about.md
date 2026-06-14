@@ -21,7 +21,7 @@ and built for reading, in the spirit of the classic
 I'm also an **amateur radio enthusiast** — you can find me on the air with
 the callsign **EA3HZE**.
 
-I write [**The Side Channel**](https://substack.com/@joscandreu), a
+I write [**The Side Channel**](https://side-channel.com), a
 newsletter with curated reading on cybersecurity, hacking and the net.
 You'll find more of my work on [GitHub](https://github.com/joscandreu),
 and you can reach me at [joscandreu@gmail.com](mailto:joscandreu@gmail.com).

@@ -8,19 +8,6 @@
     </form>
   </section>
 
-  <section class="widget widget-sections">
-    <h2 class="widget-title">Sections</h2>
-    <ul class="widget-list">
-      {% for s in site.data.navigation.sections %}
-        {% assign count = site.categories[s.category] | size %}
-        <li>
-          <a href="{{ s.url | relative_url }}">{{ s.name }}</a>
-          {% if count > 0 %}<span class="badge">{{ count }}</span>{% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-
   <section class="widget widget-recent">
     <h2 class="widget-title">Latest</h2>
     <ul class="widget-list">

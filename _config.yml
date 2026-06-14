@@ -23,7 +23,7 @@ baseurl:      ""
 # To hide all social links, leave the list empty: social: []
 social:
   - name: Twitter / X
-    url: https://twitter.com/username
+    url: https://x.com/joscandreu
   - name: Mastodon
     url: https://mastodon.social/@username
   - name: GitHub
