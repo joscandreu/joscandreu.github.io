@@ -24,6 +24,7 @@
   color: #000;
   text-decoration: none;
 }
+.brand-logo:visited { color: #000; }   // never turn purple once visited
 .brand-logo:hover { color: $color-link; text-decoration: none; }
 .brand-tagline {
   margin: .4em 0 .5em;
