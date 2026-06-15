@@ -174,12 +174,15 @@
   margin: 1.4em 0 .5em;
 }
 
-// Body links get a subtle underline for readability (microsiervos detail)
+// Body links get a subtle underline for readability (microsiervos detail).
+// As on microsiervos' article links, only text-decoration is set here — the
+// colour is left to cascade, so unvisited links stay blue ($color-link) while
+// visited ones turn purple ($color-visited) via the global a:visited rule. The
+// faint-blue underline is kept in both states.
 .post-content a:link,
 .post-content a:visited,
 .post-card-content a:link,
 .post-card-content a:visited {
-  color: $color-link;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
@@ -305,6 +308,16 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+// Sidebar list links follow microsiervos' "selección" behaviour: they stay
+// blue when visited (chrome links never go purple) and only underline on hover.
+.widget-list a:link,
+.widget-list a:visited {
+  color: $color-link;
+  text-decoration: none;
+}
+.widget-list a:hover {
+  text-decoration: underline;
 }
 .widget-list li {
   display: flex;
